@@ -11,11 +11,16 @@ public class NouveauMNouvementBalle : MonoBehaviour
     private float minVitesse = 10f;
 
     [SerializeField]
-    private Transform BrickExplosion;
+    private Transform brickExplosion;
 
     public bool enJeu;
     [SerializeField]
     private Transform plateforme;
+    [SerializeField]
+    private Transform powerUp;
+    [SerializeField]
+    private Transform powerUpDeux;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +50,23 @@ public class NouveauMNouvementBalle : MonoBehaviour
         Rebondit(collision.contacts[0].normal);
         if (collision.gameObject.CompareTag("Brick"))
         {
-            Transform explosion = Instantiate(BrickExplosion, collision.transform.position, Quaternion.identity);
-            Destroy(explosion.gameObject, 3);
+            int pourcentage = Random.Range(1, 101);
+
+            if (pourcentage < 11)
+            {
+                Instantiate(powerUp, collision.transform.position, Quaternion.identity);
+            }
+
+            if (pourcentage > 90)
+            {
+                Instantiate(powerUpDeux, collision.transform.position, Quaternion.identity);
+            }
+
+
+            //Transform explosion = Instantiate(BrickExplosion, collision.transform.position, Quaternion.identity);
+            //Destroy(explosion.gameObject, 3);
             Destroy(collision.gameObject);
+            gm.GérerPointage(1000);
 
         }
 
@@ -66,6 +85,7 @@ public class NouveauMNouvementBalle : MonoBehaviour
     {
         if (other.CompareTag("Sol"))
         {
+            gm.GérerVies(-1);
             enJeu = false;            
         }
     }

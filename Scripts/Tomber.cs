@@ -16,4 +16,12 @@ public class Tomber : MonoBehaviour
     {
         transform.Translate(new Vector3(0, -speed, 0) * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Sol"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

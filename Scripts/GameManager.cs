@@ -21,4 +21,25 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void GérerVies(int viesChangées)
+    {
+        vies += viesChangées;
+        texteVies.text = "Vies:" + vies;
+        if (vies <= 0)
+        {
+            SortieJeu();
+        }
+    }
+
+    public void GérerPointage(int pointageChangé)
+    {
+        pointage += pointageChangé;
+        textePointage.text = "Pointage:" + pointage;
+    }
+
+    void SortieJeu()
+    {
+
+    }
 }

@@ -8,6 +8,10 @@ public class MouvementPlatforme : MonoBehaviour
     [SerializeField] Rigidbody platforme;
     [SerializeField] int vitesse;
     public float limites;
+    public GameManager gm;
+    [SerializeField]
+    private Transform plateforme;
+    public Transform balle;
     void Start()
     {
         
@@ -50,8 +54,14 @@ public class MouvementPlatforme : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        Debug.Log("hit" + other.name);
+        if (other.CompareTag("VieSupp"))
+        { 
+        gm.GérerVies(1);
+        }
+        if (other.CompareTag("DoubleCoup"))
+        {
+            Instantiate(balle, other.transform.position, Quaternion.identity);
+        }
         Destroy(other.gameObject);
     }
 }
