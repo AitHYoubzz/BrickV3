@@ -333,6 +333,9 @@ MonoBehaviour:
   platforme: {fileID: 431475000}
   vitesse: 15
   limites: 17.5
+  gm: {fileID: 529231108}
+  plateforme: {fileID: 431474998}
+  balle: {fileID: 427636349837039989, guid: 4a8d222a3c2e98f4f8c05caf2f6421f3, type: 3}
 --- !u!54 &431475000
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -953,7 +956,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216508919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d829449adb6b1843bad98ac6a55ebac, type: 3}
   m_Name: 
@@ -1431,7 +1434,6 @@ GameObject:
   - component: {fileID: 2088023853}
   - component: {fileID: 2088023852}
   - component: {fileID: 2088023857}
-  - component: {fileID: 2088023858}
   - component: {fileID: 2088023859}
   m_Layer: 0
   m_Name: Balle
@@ -1472,7 +1474,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 41fee9278a416654a9dfb1f56ac14650, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1532,20 +1534,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2088023858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088023851}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b58b8a2de6d53f848b484f8f1efd2914, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialVelocity: {x: 0, y: 0, z: 0}
-  minVelocity: 10
 --- !u!114 &2088023859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1561,9 +1549,11 @@ MonoBehaviour:
   gm: {fileID: 529231108}
   rb: {fileID: 2088023857}
   minVitesse: 10
-  BrickExplosion: {fileID: 895129983111981013, guid: 133ab575ef16ce447a599ecb4fe2a4ce, type: 3}
+  brickExplosion: {fileID: 0}
   enJeu: 1
   plateforme: {fileID: 431474998}
+  powerUp: {fileID: 7327283523634796447, guid: d6c4c0ca08d931b44832b40e516f1754, type: 3}
+  powerUpDeux: {fileID: 1663282191078952244, guid: e8303027c23aa7041b6c878e14578ece, type: 3}
 --- !u!1 &2127105115
 GameObject:
   m_ObjectHideFlags: 0
