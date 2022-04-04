@@ -21,7 +21,9 @@ public class NouveauMNouvementBalle : MonoBehaviour
     [SerializeField]
     private Transform powerUpDeux;
 
-
+    int nbrBricks;
+    
+    public bool jeuFini;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +69,12 @@ public class NouveauMNouvementBalle : MonoBehaviour
             //Destroy(explosion.gameObject, 3);
             Destroy(collision.gameObject);
             gm.GérerPointage(1000);
+            nbrBricks += 1;
+            if(nbrBricks == 24)
+            {
+                jeuFini = true;
+                Debug.Log("+1");
+            }
 
         }
 
